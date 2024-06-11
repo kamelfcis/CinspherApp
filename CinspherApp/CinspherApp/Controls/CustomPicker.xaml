@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="CinspherApp.Controls.CustomPicker">
+    <ContentView.Content>
+        <StackLayout>
+            <pcview:PancakeView x:Name="pc" 
+                            CornerRadius="40,0,0,40"
+                                HeightRequest="55" BackgroundColor="White" >
+                <Grid ColumnDefinitions="*,Auto" Padding="20,0">
+                    <Picker Grid.Column="0" Title="Gender" TextColor="Gray">
+                        <Picker.Items>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Image
+                        Grid.Column="1" VerticalOptions="Center"  
+                      HorizontalOptions="End"
+                            HeightRequest="20"
+                          
+                            Source="down.png"
+                             
+                            WidthRequest="20" />
+                </Grid>
+            </pcview:PancakeView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

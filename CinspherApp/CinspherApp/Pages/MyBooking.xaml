@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CinspherApp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#1B1A28"
+             x:Name="MyBookingPage"
+             x:Class="CinspherApp.Pages.MyBooking">
+    <ContentPage.BindingContext>
+        <local:MyBookingViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Title and Back Button -->
+            <Grid Padding="10" BackgroundColor="#1B1A28">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Back" 
+                        Command="{Binding Navigation.PopAsync}" 
+                        BackgroundColor="Transparent" 
+                        TextColor="White" 
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center" />
+                <Label Text="My Ticket Booking" 
+                       Grid.Column="1"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontSize="24" 
+                       FontAttributes="Bold" 
+                       TextColor="White" 
+                       Opacity="0"
+                       x:Name="TitleLabel" />
+            </Grid>
+
+            <!-- Booking Cards -->
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <StackLayout BindableLayout.ItemsSource="{Binding Bookings}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="10"
+                                       Padding="10"
+                                       CornerRadius="10"
+                                       HasShadow="True"
+                                       BackgroundColor="#ECCA69">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                            <Image Source="ticket.png" WidthRequest="35" HeightRequest="35" />
+                                            <Label Text="{Binding ShowName}" 
+                                                   FontSize="Medium" 
+                                                   FontAttributes="Bold" 
+                                                   TextColor="White" 
+                                                   VerticalOptions="Center"
+                                                   Margin="10,0,0,0"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding BookingTime, StringFormat='Booking Time: {0:MM/dd/yyyy HH:mm}'}" 
+                                               FontSize="Small" 
+                                               TextColor="White"/>
+                                        <Label Text="Seats:" 
+                                               FontSize="Small" 
+                                               FontAttributes="Bold" 
+                                               TextColor="White" />
+                                        <StackLayout Margin="10,0,0,0">
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Seats}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                                            <Label Text="Seat ID:" FontSize="Small" TextColor="White"/>
+                                                            <Label Text="{Binding SeatId}" FontSize="Small" TextColor="White"/>
+                                                            <Label Text=" - " FontSize="Small" TextColor="White"/>
+                                                            <Label Text="Hall:" FontSize="Small" TextColor="White"/>
+                                                            <Label Text="{Binding CinemaHallName}" FontSize="Small" TextColor="White"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Label Text="{Binding Note}" FontSize="Small" TextColor="White"/>
+                                        <Button Text="Cancel" 
+                                                Command="{Binding BindingContext.CancelCommand, Source={x:Reference Name=MyBookingPage}}" 
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="Red" 
+                                                TextColor="White" 
+                                                CornerRadius="20" 
+                                                HorizontalOptions="End" 
+                                                VerticalOptions="End"/>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

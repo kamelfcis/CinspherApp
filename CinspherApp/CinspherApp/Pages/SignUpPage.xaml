@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:control="clr-namespace:CinspherApp.Controls"
+                NavigationPage.HasNavigationBar="False"
+            BackgroundColor="#1B1A28"
+             x:Class="CinspherApp.Pages.SignUpPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="GradientBrush"
+                                 StartPoint="0,1"
+                                 EndPoint="1.5,1">
+                <GradientStop Color="#ECCA69" Offset="0" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Background="{StaticResource GradientBrush}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" HeightRequest="150" Margin="-20,0" Padding="20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="circle.png" Aspect="AspectFit" HeightRequest="220" WidthRequest="100" VerticalOptions="CenterAndExpand"></Image>
+            </StackLayout>
+            <Label Grid.Row="1"  Text="SignUp To Cinspher!" Margin="0,20,0,0" FontSize="24" FontAttributes="Bold" TextColor="white" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Grid.Row="2" Margin="0,-15,0,0" Text="Watch Movie , Wait Less" TextColor="white"  HorizontalOptions="CenterAndExpand"></Label>
+
+            <control:CustomTextbox x:Name="txtFullName" Grid.Row="3"   Placeholder="Fullname" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <control:CustomTextbox x:Name="txt_UserName" Grid.Row="4"  Placeholder="UserName" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <control:CustomTextbox x:Name="txt_PassWord" Grid.Row="5" IsPassword="True"  Placeholder="Password" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <control:CustomTextbox x:Name="txt_Email"  Grid.Row="6"  Placeholder="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <control:CustomTextbox x:Name="txt_PhoneNumber" Grid.Row="7"  Placeholder="Phone" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <control:CustomPicker Grid.Row="8"></control:CustomPicker>
+
+            <ActivityIndicator Grid.Row="8" x:Name="activityIndicator" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" VerticalOptions="Center" WidthRequest="80"  HeightRequest="100" HorizontalOptions="Center" Color="#2c307a"/>
+
+            <control:CustomButton Clicked="CustomButton_Clicked"  BackgroundColor="#AA2150"  Grid.Row="9" Text="Continue"></control:CustomButton>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

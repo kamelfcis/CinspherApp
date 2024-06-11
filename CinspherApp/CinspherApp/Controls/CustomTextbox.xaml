@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              xmlns:control="clr-namespace:CinspherApp.Controls"
+             x:Class="CinspherApp.Controls.CustomTextbox">
+    <ContentView.Content>
+        <StackLayout>
+            <pcview:PancakeView x:Name="pc" 
+                            CornerRadius="40,0,0,40"
+                                HeightRequest="55" BackgroundColor="White" Padding="10,0">
+                <control:CustomEntry x:Name="txt"   Style="{x:DynamicResource CustomEntryBox}"></control:CustomEntry>
+            </pcview:PancakeView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

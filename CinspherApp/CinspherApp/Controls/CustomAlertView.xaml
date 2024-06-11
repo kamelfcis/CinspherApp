@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinspherApp.Controls.CustomAlertView">
+    <ContentView.Content>
+        <Frame Padding="20" BackgroundColor="White" CornerRadius="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout>
+                <Image Source="ticket.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center"/>
+                <Label Text="Success!" FontSize="24" FontAttributes="Bold" TextColor="Green" HorizontalOptions="Center"/>
+                <Label Text="Seats booked successfully" FontSize="18" TextColor="Black" HorizontalOptions="Center"/>
+                <Button Text="OK" Command="{Binding CloseCommand}" BackgroundColor="Green" TextColor="White" HorizontalOptions="Center" Margin="20,10,20,0"/>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

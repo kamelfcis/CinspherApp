@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+                NavigationPage.HasNavigationBar="False"
+             x:Class="CinspherApp.Pages.LandingPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="GradientBrush"
+                                 StartPoint="0,1"
+                                 EndPoint="1.5,1">
+                <GradientStop Color="black" Offset="2" />
+                <GradientStop Color="#ECCA69" Offset="0" />
+                <GradientStop Color="black" Offset="3" />
+                <GradientStop Color="#ECCA69" Offset="3" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Background="{StaticResource GradientBrush}">
+            <!-- Add other content to the stack layout -->
+
+            <Grid RowDefinitions="*"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+                <Grid x:Name="grid" Grid.Row="0"  RowSpacing="20" RowDefinitions="Auto,Auto,Auto,Auto" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image Grid.Row="0" x:Name="imgLocation" Source="circle1" Aspect="AspectFit"></Image>
+                    <Label x:Name="lblDeliver" FontSize="Large" Text="Select Your Seat" Grid.Row="1" HorizontalOptions="Center" FontAttributes="Bold" TextColor="White"></Label>
+                    <StackLayout x:Name="sl" HorizontalOptions="Center" Grid.Row="4" Orientation="Horizontal">
+                        <Button   FontSize="20" FontAttributes="Bold" Text="Go To Cinema" Clicked="btn_Go_Tapped" WidthRequest="360" HeightRequest="80" BackgroundColor="#ECCA69"  BorderColor="#AA2150" BorderWidth="1" CornerRadius="30"></Button>
+                   
+                    </StackLayout>
+                 
+                </Grid>
+                <Image x:Name="img" Grid.Row="0" Source="circle1.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
